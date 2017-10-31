@@ -6,9 +6,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        double tempo = 148.0;//eitghnotes /min
-        File file = new File("src\\elise.txt");
-        Scanner sc = new Scanner(file);
+        double tempo = Double.parseDouble(args[1]);
+        Scanner sc = new Scanner(new File(args[0]));
         SoundDevice device = new SoundDevice();
         Song song = new Song(25);
         while (sc.hasNext()) {
@@ -22,7 +21,7 @@ public class Main {
     }//main
 
     public static double parseTempo(double duration, double tempo) {
-        return (tempo/60) * duration;
+        return (240/tempo) * duration;
 
     }
 
