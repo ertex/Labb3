@@ -1,7 +1,7 @@
 public class MyColorProgram {
     public static void main(String[] args) throws Exception {
         int[][][] original = ColorImage.read("mushroom.jpeg");
-        int[][][] manipulated = sharpenTwo(original);
+        int[][][] manipulated = sobel(original);
         ColorImage.write("upDownMushroom.jpeg", manipulated);
         ColorImageWindow iw = new ColorImageWindow(original, manipulated);
     }//main
@@ -104,15 +104,18 @@ public class MyColorProgram {
 
                 for (int color = 0; color < samples[row][col].length; color++) {
 
-                    newSamples[row][col][color] = 10 * samples[row][col][color];
-                    //adding 10samples instead of 9 and then sumbtracting them again, o decreeese code volume
+                    //makes sure that there is no indexoutofbounds
                     if (row > 1 & row < (samples.length - 1) & (col > 1 & col < ((samples[row].length - 1)))) {
+                        newSamples[row][col][color] = 10 * samples[row][col][color];
+                        //adding 10samples instead of 9 and then sumbtracting them again, o decreeese code volume
+
                         newSamples[row][col][color] = 5 * samples[row][col][color] - (
-                                        samples[row - 1][col][color] +
+                                samples[row - 1][col][color] +
                                         samples[row + 1][col][color] +
                                         samples[row][col - 1][color] +
-                                        samples[row][col + 1][color] );
+                                        samples[row][col + 1][color]);
 
+                        //makes sure the color value is not >255 or <0 since that creates overflows
                         if (newSamples[row][col][color] > 255) {
                             newSamples[row][col][color] = 255;
                         } else if (newSamples[row][col][color] < 0) {
@@ -126,5 +129,46 @@ public class MyColorProgram {
         return newSamples;
 
     }//sharpenTwo
+
+    public static int[][][] sobel(int[][][] samples) {
+        int[][][] newSamples = new int[samples.length][samples[0].length][samples[0][0].length];
+        for (int row = 0; row < samples.length; row++) {
+            for (int col = 0; col < samples[row].length; col++) {
+                for (int color = 0; color < samples[row][col].length; color++) {
+                    //checking so the index is within bounds
+                    if (row > 1 & row < (samples.length - 1) & (col > 1 & col < ((samples[row].length - 1)))) {
+                        int dx = //changes on the x-axis
+                                -samples[row - 1][col - 1][color]
+                                        - 2 * samples[row - 1][col][color]
+                                        - samples[row - 1][col + 1][color]
+                                        + samples[row + 1][col - 1][color]
+                                        + 2 * samples[row + 1][col][color]
+                                        + samples[row + 1][col + 1][color];
+                        int dy = //changes in the y-axis
+                                -samples[row - 1][col - 1][color]
+                                        - 2 * samples[row][col - 1][color]
+                                        - samples[row + 1][col - 1][color]
+                                        + samples[row - 1][col + 1][color]
+                                        + 2 * samples[row][col + 1][color]
+                                        + samples[row + 1][col + 1][color];
+                        //allocates the *distance* between the
+                        newSamples[row][col][color] = (int) Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2));
+
+                        //makes sure the color value is not >255 or <0 since that creates overflows
+                        if (newSamples[row][col][color] > 255) {
+                            newSamples[row][col][color] = 255;
+                        } else if (newSamples[row][col][color] < 0) {
+                            newSamples[row][col][color] = 0;
+
+                        }
+
+                    }
+                }
+            }
+        }
+        return newSamples;
+
+
+    }//Sobel
 
 }//MyColorProgram
