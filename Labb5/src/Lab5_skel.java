@@ -11,7 +11,12 @@ public class Lab5_skel {
     // -- Del 2 --
 
     //rollADice();
+
     //letPlayerRoll();
+    Dice d = new Dice(6);
+    for(int i = 0; i <100; i++){
+      System.out.print(d.roll());
+    }
     //letTwoPlayersRollSameDice();
     //letPlayerUseDiceCup();
     //findPlayerWithMax();
@@ -41,15 +46,23 @@ public class Lab5_skel {
   // ---------- Del 2 ---------------
 
   // 5
-  public static void rollADice() {
+  public static void rollADice(Dice dice) {
+    for(int i = 0; i <100; i++){
+      System.out.print(dice.roll();
+    }
   }
 
   // 6
-  public static void letPlayerRoll() {
+  public static void letPlayerRoll(Player1 player, int numRolls) {
+    player.rollDice(numRolls);
   }
 
   // 7
-  public static void letTwoPlayersRollSameDice() {
+  public static void letTwoPlayersRollSameDice(Dice dice, String name1, String name2) {
+    Player1 player1 = new Player1(name1, dice);
+    Player1 player2 = new Player1(name2, dice);
+    letPlayerRoll(player1);
+    letPlayerRoll(player2);
   }
 
   // 8
