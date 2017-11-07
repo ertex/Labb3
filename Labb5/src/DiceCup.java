@@ -14,4 +14,16 @@ public class DiceCup {
         }
         return sum;
     }
+
+    public String toString(){
+        String toString = "DiceCup{[dices = ";
+        for(int i = 0; i < 5; i++){
+            toString += dices[i].toString();
+            if(i<4){
+                toString+= ", ";
+            }
+        }
+        toString+="]}";
+        return toString;
+    }
 }

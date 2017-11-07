@@ -9,7 +9,7 @@ public class Player1 {
     }
 
     public void rollDice(int numRolls){
-        System.out.println("Player is " + name);
+        System.out.println("\nPlayer is " + name);
         for(int i = 0; i < numRolls; i++){
             System.out.print(dice.roll());
         }

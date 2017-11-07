@@ -14,6 +14,10 @@ public class Player2 {
         sum += diceCup.rollAllDice();
     }
 
+    public String getName(){
+        return name;
+    }
+
     public int accumulatedSum (){
         return sum;
     }

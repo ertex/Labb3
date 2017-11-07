@@ -21,4 +21,7 @@ public class Dice {
         return lastRoll;
     }
 
+    public String toString(){
+        return ("Dice{result =" + lastRoll + "}");
+    }
 }
