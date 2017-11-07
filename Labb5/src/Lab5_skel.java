@@ -46,10 +46,9 @@ public class Lab5_skel {
   // ---------- Del 2 ---------------
 
   // 5
-  public static void rollADice(Dice dice) {
-    for(int i = 0; i <100; i++){
-      System.out.print(dice.roll();
-    }
+  public static int rollADice(Dice dice) {
+    int num = dice.roll();
+    return num;
   }
 
   // 6
@@ -58,11 +57,11 @@ public class Lab5_skel {
   }
 
   // 7
-  public static void letTwoPlayersRollSameDice(Dice dice, String name1, String name2) {
+  public static void letTwoPlayersRollSameDice(Dice dice, String name1, String name2,  int numRolls) {
     Player1 player1 = new Player1(name1, dice);
     Player1 player2 = new Player1(name2, dice);
-    letPlayerRoll(player1);
-    letPlayerRoll(player2);
+    letPlayerRoll(player1 , numRolls);
+    letPlayerRoll(player2 , numRolls);
   }
 
   // 8
