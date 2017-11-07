@@ -10,16 +10,35 @@ public class Lab5_skel {
 
 
     // -- Del 2 --
-
     //rollADice();
+      Dice dice = new Dice(6);
+
+      for(int i = 0; i <100; i++){
+          System.out.print(rollADice(dice));
+      }
 
     //letPlayerRoll();
-    Dice d = new Dice(6);
-    for(int i = 0; i <100; i++){
-      System.out.print(d.roll());
-    }
+      Player1 pelle = new Player1("Pelle", dice);
+
+      letPlayerRoll(pelle, 5);
+
     //letTwoPlayersRollSameDice();
+      letTwoPlayersRollSameDice(dice, "Anna", "Bella", 5);
+
     //letPlayerUseDiceCup();
+      Dice[] dices = new Dice[5];
+      for(int i = 0; i < 5; i++){
+          Dice d = new Dice(6);
+          dices[i] = d;
+      }
+
+      DiceCup dicecup = new DiceCup(dices);
+      Player2 laurencia = new Player2("Laurencia", dicecup);
+      letPlayerUseDiceCup(laurencia);
+      System.out.println("Laurencia: " + laurencia.accumulatedSum());
+      letPlayerUseDiceCup(laurencia);
+      System.out.println("Laurencia: " + laurencia.accumulatedSum());
+
     //findPlayerWithMax();
   }
 
@@ -88,7 +107,8 @@ public class Lab5_skel {
   }
 
   // 8
-  public static void letPlayerUseDiceCup() {
+  public static void letPlayerUseDiceCup(Player2 player) {
+      player.player2roll();
   }
 
   // 9

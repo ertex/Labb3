@@ -1,6 +1,6 @@
 public class DiceCup {
 
-    Dice[] dices = new Dice[];
+    private Dice[] dices = new Dice[5];
 
     public DiceCup(Dice[] dices){
         this.dices = dices;
@@ -8,8 +8,10 @@ public class DiceCup {
 
     public int rollAllDice(){
         int sum = 0;
-        for(int i = 0, i < dices.length; i++){
-
+        for(int i = 0; i <5; i++){
+            dices[i].roll();
+            sum += dices[i].getLastRoll();
         }
+        return sum;
     }
 }
