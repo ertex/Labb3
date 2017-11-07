@@ -1,3 +1,4 @@
+
 public class Lab5_skel {
 
   public static void main(String[] args) {
@@ -26,6 +27,28 @@ public class Lab5_skel {
 
   // 1 and 4
   public static void doCommandLine() {
+      String lastReceived;
+      boolean looping = true;
+      do {
+          lastReceived = scanner.next();
+          switch (lastReceived) {
+              case "p":
+                  System.out.println("Input text");
+                  lastReceived = scanner.next();
+                  System.out.println(lastReceived);
+                  break;
+              case "r":
+                  System.out.println("Input text");
+                  lastReceived = scanner.next();
+                  System.out.println(lastReceived);
+                  break;
+
+              case "q":
+                  looping = false;
+                  break;
+          }
+
+      } while (looping);
   }
 
   // 2
