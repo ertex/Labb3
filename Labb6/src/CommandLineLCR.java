@@ -11,44 +11,51 @@ public class CommandLineLCR {
   public CommandLineLCR(){}
 
   public static void main(String[] args) {
-    buildLCRGame();
+    /* Dice dice = new Dice();
+    System.out.println(dice.roll());
+    Player Em = new Player("Emi");
+    System.out.println(Em.getNRolls());
+    Em.giveChip();
+    Em.giveChip();
+    System.out.println(Em.getNRolls());
+    Em.takeChip();
+    System.out.println(Em.getNRolls());
+    */
 
-
+    new CommandLineLCR().run();
   }
 
   public void run() {
     boolean done = false;
-    // ... = buildLCRGame();
+    buildLCRGame();
     System.out.println("LCR started");
     System.out.print("Players are ");
     Scanner s = new Scanner(System.in);
-    //render( ... );
+    render();
     while (!done) {
-      //System.out.println("Player is " + ...);
+      System.out.println("Player is " + game.getCurrentPlayer());
       System.out.print("> ");
-      String cmd = s.nextLine();
+      String cmd = s.next();
       switch (cmd) {
         case "r":
-          // What to do here?
+          game.nextTurn();
           break;
         case "q":
+          System.out.printf(game.toString() + "\nGame aborted");
           done = true;
           break;
         default:
           System.out.println("?");
       }
+      if(game.checkWin()>= 0){
+        System.out.println("Game over! Winner is " + game.getPlayer(game.checkWin()));
+        done = true;
+      }
     }
 
-        /* TODO
-        if ( ... ) {
-            System.out.println("Game over! Winner is " + lcr.getWinner());
-        } else {
-            render(lcr);
-            System.out.println("Game aborted");
-        }*/
   }
 
-    public void buildLCRGame() {
+    public CommandLineLCR buildLCRGame() {
 
 
     // Set up number of players and player names
@@ -56,7 +63,7 @@ public class CommandLineLCR {
         int numbPlayers = s.nextInt();
         Player[] players = new Player[numbPlayers];
         for(int i = 0; i < numbPlayers; i++){
-          System.out.println("Name of player " + i+1 + ": ");
+          System.out.println("Name of player " + (i+1) + ": ");
           players[i] = new Player(s.next());
         }
 
@@ -81,7 +88,7 @@ public class CommandLineLCR {
         }
         System.out.println();
         */
-      System.out.println("" + game.toString);
+      System.out.println(game.toString());
     }
 
 }

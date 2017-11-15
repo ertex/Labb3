@@ -12,8 +12,10 @@ public class LCR {
     }
 
     public void nextTurn(){
-        for(int i = 0; i < players[currentPlayer].getNRolls; i++){
+        int rolls = players[currentPlayer].getNRolls();
+        for(int i = 0; i < rolls; i++){
             char roll = dice.roll();
+            System.out.print(roll + " ");
             if(roll == 'L'){
                 players[currentPlayer].takeChip();
                 players[nextPlayer].giveChip();
@@ -24,33 +26,46 @@ public class LCR {
                 players[lastPlayer].giveChip();
             }
         }
+        System.out.println();
         lastPlayer = currentPlayer;
         currentPlayer = nextPlayer;
         if(nextPlayer == players.length-1){
             nextPlayer = 0;
         }else{
-            nextPlayer += 1;
+            nextPlayer ++;
         }
     }
 
-    public boolean checkWin(){
-        int playersWithChips = 0;
+    public String getCurrentPlayer(){
+        return players[currentPlayer].toString();
+    }
 
-        for(int i = 0; i < players.length-1; i++){
-            if(players[i].getNRolls > 0)
+    public String getPlayer(int pos){
+        return players[pos].toString();
+    }
+
+    public int checkWin(){
+        int playersWithChips = 0;
+        int win = 0;
+
+        for(int i = 0; i < players.length; i++){
+            if(players[i].getNRolls() > 0){
                 playersWithChips++;
+                win = 1;
+            }
+
         }
 
         if(playersWithChips == 1){
-            return true;
+            return win;
         }else{
-            return false;
+            return -1;
         }
     }
 
     public String toString(){
         String string = "";
-        for(int i = 0;i < players.length-1; i++ ){
+        for(int i = 0;i < players.length; i++ ){
             string += players[i].toString();
         }
         return string;

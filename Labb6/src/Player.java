@@ -6,7 +6,7 @@ public class Player {
         this.name = name;
     }
 
-    public int getNRolls{
+    public int getNRolls(){
         return chips;
     }
 
