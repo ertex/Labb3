@@ -1,3 +1,6 @@
+import com.sun.xml.internal.ws.util.StringUtils;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Lab5_skel {
@@ -5,7 +8,7 @@ public class Lab5_skel {
     public static void main(String[] args) {
         // -- Del 1 --
 
-        //doCommandLine();
+        doCommandLine();
         //System.out.println(toRobber("Hej på dig"));
         //System.out.println(toPigLatin("Hej på dig"));
 
@@ -46,12 +49,12 @@ public class Lab5_skel {
 
         //findPlayerWithMax();
         Player2[] players = new Player2[5];
-        for(int i = 0; i <5; i++){
-            players[i] = new Player2("" + i,dicecup);
+        for (int i = 0; i < 5; i++) {
+            players[i] = new Player2("" + i, dicecup);
             letPlayerUseDiceCup(players[i]);
             System.out.println(dicecup.toString());
         }
-        for(int i = 0; i <5; i++){
+        for (int i = 0; i < 5; i++) {
             System.out.println(players[i].getName() + ":" + players[i].accumulatedSum());
         }
         int winner = findPlayerWithMax(players);
@@ -68,18 +71,19 @@ public class Lab5_skel {
         String lastReceived;
         boolean looping = true;
         do {
-            lastReceived = scanner.next();
+            lastReceived = scanner.nextLine();
+
             switch (lastReceived) {
                 case "p":
                     System.out.println("Input text");
-                    lastReceived = scanner.next();
-                    System.out.println(lastReceived);
+                    lastReceived = scanner.nextLine();
+                    System.out.println(toPigLatin(lastReceived));
                     break;
                 case "r":
                     System.out.println("Input text");
-                    lastReceived = scanner.next();
-                    // System.out.println(lastReceived);
-                    toRobber(lastReceived);
+                    lastReceived = scanner.nextLine();
+
+                    System.out.println(toRobber(lastReceived));
                     break;
 
                 case "q":
@@ -92,30 +96,61 @@ public class Lab5_skel {
 
     // 2
     public static String toRobber(String text) {
-        for (int i : text.getBytes()) {
-            char ch = text.charAt(i);
-            if (isVowel(ch)) { //if the char at index i is a wovel, print the char
-                System.out.print(ch);
-            } else {        //else if if if its !vowel (konsonant?) surround a "o" with the char
-                System.out.print(ch + "o" + ch);
+        ArrayList<Byte> newString = new ArrayList();
+        // byte[] newString = new byte[text.length()];
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);//no matter what outcome isvowel() will have ch is allways added
+            newString.add((byte) ch);
+            if (!isVowel(ch)) { //if the character is !vowel a "RobberTwist" will be added to the char
+                newString.add((byte) ("o".charAt(0)));
+                newString.add((byte) ch);
+            }
+        }
+        byte[] byteArray = new byte[newString.size()];
+        for (int i = 0; i < newString.size(); i++) {
+            byteArray[i] = newString.get(i);
+        }
+        return new String(byteArray);
+    }
+
+    // 3
+
+    public static boolean isVowel(char ch) {
+        return "AOUÅEIYÄÖaouåeiyäö".indexOf(ch) != -1;
+    }
+
+    public static String toPigLatin(String text) {
+        String[] words = text.split(" ");
+        String[] pigLatinWords = new String[words.length];
+        for (int i = 0; i < words.length; i++) {
+              String word = words[i];
+            if (isVowel(word.charAt(0))) {
+                pigLatinWords[i] = word + "way"; //the first letter is a vowel, just add -way
+            } else {
+                int n = word.length();
+                do {
+                      // this loop moves the enire array(String) one char to the left looping back to the end
+                    //until the first letter is an vowel
+
+                    char[] newString = new char[n];
+                    newString[n - 1] = word.charAt(0);
+
+                    for (int j = 0; j < n - 1; j++) {
+                        newString[j] = word.charAt(j + 1);
+                    }
+                    word = new String(newString); //Note original data is not overwritten since word in not part of words[]
+                } while (!isVowel(word.charAt(0)));
+                pigLatinWords[i] = word + "ay";//adds -ay after the entire word
             }
 
         }
 
 
-        return null; // Just for now
+        return String.join(" ", pigLatinWords);
+
+
     }
 
-    // 3
-    public static boolean isVowel(char ch) {
-
-
-        return "AEIOUÅÄÖaeiouåäö".indexOf(ch) != -1;
-    }
-
-    public static String toPigLatin(String text) {
-        return null;// Just for now
-    }
 
     // ---------- Del 2 ---------------
 
@@ -147,8 +182,8 @@ public class Lab5_skel {
     public static int findPlayerWithMax(Player2[] players) {
         int player = 0;
         int value = players[0].accumulatedSum();
-        for(int i = 1; i < players.length; i++){
-            if(players[i].accumulatedSum()> value){
+        for (int i = 1; i < players.length; i++) {
+            if (players[i].accumulatedSum() > value) {
                 value = players[i].accumulatedSum();
                 player = i;
             }

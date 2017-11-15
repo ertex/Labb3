@@ -75,7 +75,7 @@ public class MyColorProgram {
 
                     newSamples[row][col][color] = 10 * samples[row][col][color];
                     //adding 10samples instead of 9 and then sumbtracting them again, o decreeese code volume
-                    if (row > 1 & row < (samples.length - 1) & (col > 1 & col < ((samples[row].length - 1)))) {
+                    if (row > 0 && row < (samples.length - 1) && (col > 0 && col < ((samples[row].length - 1)))) {
                         //note that the for loops start at -1
                         for (int i = -1; i < 2; i++) {
                             for (int j = -1; j < 2; j++) {
@@ -105,7 +105,7 @@ public class MyColorProgram {
                 for (int color = 0; color < samples[row][col].length; color++) {
 
                     //makes sure that there is no indexoutofbounds
-                    if (row > 1 & row < (samples.length - 1) & (col > 1 & col < ((samples[row].length - 1)))) {
+                    if (row > 0 && row < (samples.length - 1) && (col > 0 && col < ((samples[row].length - 1)))) {
                         newSamples[row][col][color] = 10 * samples[row][col][color];
                         //adding 10samples instead of 9 and then sumbtracting them again, o decreeese code volume
 
@@ -136,7 +136,7 @@ public class MyColorProgram {
             for (int col = 0; col < samples[row].length; col++) {
                 for (int color = 0; color < samples[row][col].length; color++) {
                     //checking so the index is within bounds
-                    if (row > 1 & row < (samples.length - 1) & (col > 1 & col < ((samples[row].length - 1)))) {
+                    if (row > 0 && row < (samples.length - 1) && (col > 0 && col < ((samples[row].length - 1)))) {
                         int dx = //changes on the x-axis
                                 -samples[row - 1][col - 1][color]
                                         - 2 * samples[row - 1][col][color]

@@ -1,7 +1,7 @@
 public class MyGrayProgram {
     public static void main(String[] args) throws Exception {
         int[][] original = GrayImage.read("mushroom.jpeg");
-        int[][] manipulated = upDown(original);
+        int[][] manipulated = contour(original);
         GrayImage.write("upDownMushroom.jpeg", manipulated);
         GrayImageWindow iw = new GrayImageWindow(original, manipulated);
     }//main
@@ -51,19 +51,28 @@ public class MyGrayProgram {
         int[][] newSamples = new int[samples.length][samples[0].length];
         for (int row = 0; row < blackWhite.length; row = row + 1) {
             for (int col = 0; col < blackWhite[row].length; col = col + 1) {
-                //makes sure it's not out of bounds
-                if (row > 1 & row < (blackWhite.length - 1) & (col > 1 & col < ((blackWhite[row].length - 1)))) {
+                //makes sure it's not out of bounds (just so it does not check [-1] cells)
+                if (row > 0 && row < (blackWhite.length - 1) && (col > 0 && col < ((blackWhite[row].length - 1)))) {
                     //checks for countour
-                    if (blackWhite[row][col] == 255 &
+                    if (blackWhite[row][col] == 255 &&
                             (blackWhite[row + 1][col] == 0
                                     | blackWhite[row - 1][col] == 0
                                     | blackWhite[row][col + 1] == 0
-                                    | blackWhite[row][col - 1] == 0)) {
+                                    | blackWhite[row][col - 1] == 0
+                                    | blackWhite[row+1][col - 1] == 0
+                                    | blackWhite[row-1][col - 1] == 0
+                                    | blackWhite[row+1][col + 1] == 0
+                                    | blackWhite[row-1][col + 1] == 0)) {
                         newSamples[row][col] = 0;
                     } else {
                         newSamples[row][col] = 255;
                     }
                 }
+                else
+                    {
+                        newSamples[row][col] = blackWhite[row][col];
+                        //this is the boundry of the image, the color is perserved from blackwhite
+                    }
             }
         }
         return newSamples;
