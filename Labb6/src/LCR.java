@@ -58,6 +58,9 @@ public class LCR {
 
         if(playersWithChips == 1){
             return win;
+        }else if(playersWithChips<1){
+            System.out.println("everybody loses!");
+            return win;
         }else{
             return -1;
         }

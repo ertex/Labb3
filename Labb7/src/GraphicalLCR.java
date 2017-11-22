@@ -46,7 +46,6 @@ public class GraphicalLCR extends JFrame implements ActionListener {
     private void buildLCRGame() {
         // Set up number of players and player names
         int numberOfPlayers = Integer.parseInt(JOptionPane.showInputDialog("Enter number of players"));
-        System.out.println("Enter number of players");
         Player[] players = new Player[numberOfPlayers];
         for (int i = 0; i < numberOfPlayers; i++) {
 
@@ -119,6 +118,7 @@ public class GraphicalLCR extends JFrame implements ActionListener {
 
                     case "quit":
                         game.running = false;
+
                         break;
 
                     case "roll":

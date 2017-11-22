@@ -40,7 +40,6 @@ public class LCR {
             }
             players[currentPlayer].updatePointsLabel();
         }
-        System.out.println();
         lastPlayer = currentPlayer;
         currentPlayer = nextPlayer;
         if(nextPlayer == players.length-1){

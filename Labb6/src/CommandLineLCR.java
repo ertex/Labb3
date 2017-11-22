@@ -33,8 +33,7 @@ public class CommandLineLCR {
     Scanner s = new Scanner(System.in);
     render();
     while (!done) {
-      System.out.println("Player is " + game.getCurrentPlayer());
-      System.out.print("> ");
+      render();
       String cmd = s.next();
       switch (cmd) {
         case "r":
@@ -68,27 +67,17 @@ public class CommandLineLCR {
         }
 
         //Create game dice
-      Dice dice = new Dice();
+      Dice dice = new Dice(6);
 
         //Create new game
       this.game = new LCR(players, dice);
       return new CommandLineLCR();
     }
 
-
     private void render() {
-        // This needs overridden toString method to work!
-      /*
-        for (String s : LCR.getResult()) {
-            System.out.print(s + "  ");
-        }
-        System.out.println();
-        for (Player p : lcr.getPlayers()) {
-            System.out.print(p + " ");
-        }
-        System.out.println();
-        */
       System.out.println(game.toString());
+      System.out.println("Current player is " + game.getCurrentPlayer());
+      System.out.print("> ");
     }
 
 }
