@@ -53,7 +53,7 @@ public class GraphicalLCR extends JFrame implements ActionListener {
         }
 
         //Create game dice
-        Dice dice = new Dice();
+        Dice dice = new Dice(6);
 
         //Create new game
         this.game = new LCR(players, dice);

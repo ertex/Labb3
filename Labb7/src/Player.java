@@ -13,14 +13,24 @@ public class Player {
     }
 
     public int getNRolls(){
+        if(chips<1){
+            return 0;
+        }
+        if(chips>3){
+            return 3;
+        }
         return chips;
     }
 
+
     public void takeChip(){
-        chips--;
+        if(chips>0){
+            chips--;
+        }
     }
 
     public void giveChip(){
+
         chips++;
     }
 

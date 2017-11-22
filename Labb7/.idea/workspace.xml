@@ -15,15 +15,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GraphicalLCR.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GraphicalLCR.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GraphicalLCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="46" column="17" lean-forward="false" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="608">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
-                <element signature="method#createAndShowGUI#0;class#GraphicalLCR#0" expanded="false" />
                 <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
               </folding>
             </state>
@@ -33,21 +32,27 @@
       <file leaf-file-name="Dice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="512">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <element signature="e#125#126#0" expanded="true" />
+                <element signature="e#159#160#0" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LCR.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LCR.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="512">
+              <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#checkWin#0;class#LCR#0" expanded="false" />
+                <element signature="e#2364#2365#0" expanded="true" />
+                <element signature="e#2398#2399#0" expanded="true" />
                 <element signature="method#toString#0;class#LCR#0" expanded="false" />
               </folding>
             </state>
@@ -57,10 +62,11 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+            <state relative-caret-position="416">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getPanel#0;class#Player#0" expanded="false" />
                 <element signature="method#updatePointsLabel#0;class#Player#0" expanded="false" />
               </folding>
             </state>
@@ -90,13 +96,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/CommandLineLCR.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/GraphicalLCR.java" />
         <option value="$PROJECT_DIR$/src/LCR.java" />
+        <option value="$PROJECT_DIR$/src/Dice.java" />
+        <option value="$PROJECT_DIR$/src/GraphicalLCR.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="93" />
     <option name="y" value="47" />
     <option name="width" value="1149" />
@@ -117,7 +124,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -135,11 +141,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Labb6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -279,7 +286,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="744" extended-state="6" />
+    <frame x="-1" y="-1" width="1368" height="749" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -338,7 +345,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Player.java</url>
-          <line>27</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -349,7 +356,7 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -361,7 +368,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
-            <element signature="method#createAndShowGUI#0;class#GraphicalLCR#0" expanded="false" />
             <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
           </folding>
         </state>
@@ -371,7 +377,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#125#126#0" expanded="true" />
+            <element signature="e#159#160#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LCR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
+            <element signature="method#toString#0;class#LCR#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -381,6 +405,49 @@
           <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPanel#0;class#Player#0" expanded="false" />
+            <element signature="method#updatePointsLabel#0;class#Player#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui_exempel.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalLCR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#125#126#0" expanded="true" />
+            <element signature="e#159#160#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getPanel#0;class#Player#0" expanded="false" />
             <element signature="method#updatePointsLabel#0;class#Player#0" expanded="false" />
           </folding>
         </state>
@@ -392,7 +459,8 @@
           <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#checkWin#0;class#LCR#0" expanded="false" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
             <element signature="method#toString#0;class#LCR#0" expanded="false" />
           </folding>
         </state>
@@ -410,7 +478,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
-            <element signature="method#createAndShowGUI#0;class#GraphicalLCR#0" expanded="false" />
             <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
           </folding>
         </state>
@@ -427,6 +494,7 @@
           <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPanel#0;class#Player#0" expanded="false" />
             <element signature="method#updatePointsLabel#0;class#Player#0" expanded="false" />
           </folding>
         </state>
@@ -438,7 +506,8 @@
           <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#checkWin#0;class#LCR#0" expanded="false" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
             <element signature="method#toString#0;class#LCR#0" expanded="false" />
           </folding>
         </state>
@@ -451,7 +520,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
-            <element signature="method#createAndShowGUI#0;class#GraphicalLCR#0" expanded="false" />
             <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
           </folding>
         </state>
@@ -464,7 +532,8 @@
           <caret line="65" column="28" lean-forward="false" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#checkWin#0;class#LCR#0" expanded="false" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
             <element signature="method#toString#0;class#LCR#0" expanded="false" />
           </folding>
         </state>
@@ -481,6 +550,7 @@
           <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPanel#0;class#Player#0" expanded="false" />
             <element signature="method#updatePointsLabel#0;class#Player#0" expanded="false" />
           </folding>
         </state>
@@ -493,7 +563,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
-            <element signature="method#createAndShowGUI#0;class#GraphicalLCR#0" expanded="false" />
             <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
           </folding>
         </state>
@@ -506,51 +575,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalLCR.form" />
     <entry file="file://$PROJECT_DIR$/src/CommandLineLCR.java" />
-    <entry file="file://$PROJECT_DIR$/src/LCR.java">
+    <entry file="file://$PROJECT_DIR$/gui_exempel.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraphicalLCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        <state relative-caret-position="608">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#checkWin#0;class#LCR#0" expanded="false" />
-            <element signature="method#toString#0;class#LCR#0" expanded="false" />
+            <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#125#126#0" expanded="true" />
+            <element signature="e#159#160#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="416">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getPanel#0;class#Player#0" expanded="false" />
             <element signature="method#updatePointsLabel#0;class#Player#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui_exempel.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dice.java">
+    <entry file="file://$PROJECT_DIR$/src/LCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GraphicalLCR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="46" column="17" lean-forward="false" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+        <state relative-caret-position="512">
+          <caret line="32" column="46" lean-forward="false" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;class#GraphicalLCR#0" expanded="false" />
-            <element signature="method#createAndShowGUI#0;class#GraphicalLCR#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#GraphicalLCR#0" expanded="false" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#2398#2399#0" expanded="true" />
+            <element signature="method#toString#0;class#LCR#0" expanded="false" />
           </folding>
         </state>
       </provider>
