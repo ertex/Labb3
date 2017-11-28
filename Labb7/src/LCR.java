@@ -1,44 +1,33 @@
-import javax.swing.*;
-import java.awt.*;
-
 public class LCR {
     private Player[] players;
     private Dice dice;
     private int lastPlayer;
     private int currentPlayer = 0;
     private int nextPlayer = 1;
+    private String lastResults;
+    private Dice die[] = new Dice[3];
 
-    private JLabel resultLabel;
-    public boolean running;
-
-
-    public LCR(Player[] players, Dice dice){
-        this.dice = dice;
+    public LCR(Player[] players){
+        for(int i = 0;i<3;i++){
+            die[i] =new Dice(6);
+        }
         this.players = players;
         this.lastPlayer = players.length-1;
-        resultLabel = new JLabel();
-        players[currentPlayer].setColor(Color.GREEN);
-        running = true;
     }
-
+    //This method is a bit different from Labb6, due to recived feedback,but it has the same function
     public void nextTurn(){
-        int rolls = players[currentPlayer].getNRolls();
-        resultLabel.setText("");//clears the label
-        for(int i = 0; i < rolls; i++){
-            char roll = dice.roll();
-            resultLabel.setText(resultLabel.getText()+" "+roll);
-            if(roll == 'L'){
+        String rolls = rollNDice(players[currentPlayer].getNRolls());
+        for(int i =0; i< rolls.getBytes().length;i++) {
+            char roll = rolls.charAt(i);
+            if (roll == 'L') {
                 players[currentPlayer].takeChip();
                 players[nextPlayer].giveChip();
-                players[nextPlayer].updatePointsLabel();
-            }else if(roll == 'C'){
+            } else if (roll == 'C') {
                 players[currentPlayer].takeChip();
-            }else if(roll == 'R'){
+            } else if (roll == 'R') {
                 players[currentPlayer].takeChip();
                 players[lastPlayer].giveChip();
-                players[lastPlayer].updatePointsLabel();
             }
-            players[currentPlayer].updatePointsLabel();
         }
         lastPlayer = currentPlayer;
         currentPlayer = nextPlayer;
@@ -47,21 +36,33 @@ public class LCR {
         }else{
             nextPlayer ++;
         }
-        players[lastPlayer].setColor(Color.WHITE);
-        players[currentPlayer].setColor(Color.GREEN);
-        checkWin();
     }
 
     public String getCurrentPlayer(){
         return players[currentPlayer].toString();
     }
 
-    public Player getPlayer(int pos){
-        return players[pos];
+    public String rollNDice(int n){
+        String s = "";
+        for(int i=0;i<n;i++){
+            s=s+ die[i].roll();
+
+        }
+        lastResults = s;
+return s;
     }
 
-    public Player[] getPlayers() {
+
+    public String getLastResults(){
+        return lastResults;
+
+    }
+    public String getPlayer(int pos){
+        return players[pos].toString();
+    }
+    public Player[] getPlayers(){
         return players;
+
     }
 
     public int checkWin(){
@@ -77,17 +78,13 @@ public class LCR {
         }
 
         if(playersWithChips == 1){
-            running = false;
             return win;
-
+        }else if(playersWithChips<1){
+            System.out.println("everybody loses!");
+            return win;
         }else{
-
             return -1;
         }
-    }
-
-    public JLabel getResultLabel(){
-        return resultLabel;
     }
 
     public String toString(){

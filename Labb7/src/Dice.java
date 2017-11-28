@@ -5,7 +5,7 @@ public class Dice {
     private char lastResult;
 
     public Dice(int faces){
-        this.faces = faces;
+    this.faces = faces;
     }
 
     public char roll(){
@@ -28,5 +28,10 @@ public class Dice {
     public char getLastResult(){
         return lastResult;
     }
+
+    public String lastResultToString(){
+        return ""+lastResult;
+    }
+
 
 }
