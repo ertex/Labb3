@@ -19,16 +19,15 @@ public class GraphicalLCR extends JFrame {
     private JLabel resultLabel;
     private JPanel cmdPanel;
     private JPanel resultPanel;
-    private JFrame frame;
     private LCR game;
     private ActionHandler actionHandler;
     private int xSize, ySize;
     private HashMap<String, PlayerPanel> map;
+    private boolean running = true;
 
 
     public static void main(String[] args) {
         GraphicalLCR game = new GraphicalLCR(400, 400);
-
     }
 
     public GraphicalLCR(int xSize, int ySize) {
@@ -44,16 +43,21 @@ public class GraphicalLCR extends JFrame {
 
     public void run() {
 
+        while (running) {
 
-        resultLabel.setText(game.getLastResults());
-        for (PlayerPanel p : map.values()) {
-            if(game.getCurrentPlayer().equals(p.getPlayer().getName())){
-                p.getPanel().setBackground(Color.RED);
+            resultLabel.setText(game.getLastResults());
+            for (PlayerPanel p : map.values()) {
+                if (game.getCurrentPlayer().equals(p.getPlayer().getName())) {
+                    p.getPanel().setBackground(Color.GREEN);
+                } else {
+                    p.getPanel().setBackground(Color.white);
+                }
+                p.update();
             }
-            else{
-                p.getPanel().setBackground(Color.white);
+            if (game.checkWin() == 1) {//If someone won the game
+                JOptionPane.showMessageDialog(null, "The winner is: "+game.getCurrentPlayer());
+                endGame();
             }
-            p.update();
         }
     }
 
@@ -67,6 +71,12 @@ public class GraphicalLCR extends JFrame {
         }
         //Create new game
         this.game = new LCR(players);
+    }
+
+    private void endGame() {
+        running = false;
+        cmdPanel.removeAll();
+        //it would also be possible to turn of the buttons
     }
 
 
@@ -152,8 +162,8 @@ public class GraphicalLCR extends JFrame {
         }
     }
 
-    private class ActionHandler implements ActionListener{
-            //this listens if a action is performed and exceutes the linked action
+    private class ActionHandler implements ActionListener {
+        //this listens if a action is performed and exceutes the linked action
         public void actionPerformed(ActionEvent e) {
 
             try {
@@ -162,7 +172,7 @@ public class GraphicalLCR extends JFrame {
                 switch (cmd) {
 
                     case "quit":
-
+                        endGame();
 
                         break;
 

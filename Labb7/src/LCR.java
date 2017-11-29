@@ -39,7 +39,7 @@ public class LCR {
     }
 
     public String getCurrentPlayer(){
-        return players[currentPlayer].toString();
+        return players[currentPlayer].getName();
     }
 
     public String rollNDice(int n){
