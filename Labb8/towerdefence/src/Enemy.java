@@ -16,7 +16,7 @@ public class Enemy extends Sprite {
     private int bloodDelay;
     private Random rnd;
 
-    public Enemy(int x, int y,int hp, BufferedImage img, String deathZero, String deathOne, String deathTwo, BufferedImage bloodImg) {
+    public Enemy(int x, int y,int hp, BufferedImage img, BufferedImage bloodImg) {
         super(x, y, img); //Img gets declared further down, this is ugly I know
 
         this.bloodImg = bloodImg;

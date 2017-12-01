@@ -16,7 +16,7 @@ public class Tower extends Sprite {
     private boolean canFire;
 
 
-    public Tower(int x, int y,int firerate,int damage,int range, BufferedImage img, String sound) {
+    public Tower(int x, int y,int firerate,int damage,int range, BufferedImage img) {
         super(x, y, img); //  could not use "-img.getHeight()" in order to fix issues with location issues, so I did some hardcoding
 
         this.sound = sound;

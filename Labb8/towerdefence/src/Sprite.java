@@ -10,7 +10,6 @@ public class Sprite {
     protected int y;
     protected int height;
     protected int width;
-
     protected BufferedImage img;
 
     Sprite(int x, int y, BufferedImage img) {

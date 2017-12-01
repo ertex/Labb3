@@ -17,14 +17,10 @@ public class Map extends Sprite {
     static final int tileSize = 50, mapSize = 9; //tilesize can be modified, but DONT TOUCH mapSize! it tells the size of collitionMap[][]
     static final int mapPixelSize = tileSize * mapSize;
 
-    private BufferedImage hatifnattImg;
-    private BufferedImage morranImg;
-
     private BufferedImage bloodImg;
 
-    private BufferedImage myImg;
-    private BufferedImage muminPappaImg;
-    private BufferedImage stinkyImg;
+    private BufferedImage towerImg;
+    private BufferedImage enemyImg;
 
     static boolean lost;
 
@@ -32,17 +28,13 @@ public class Map extends Sprite {
         super(0, 0, img);
 
         try {
-            hatifnattImg = ImageIO.read(new File("src\\Images\\Hattifnatt.png"));
-            morranImg = ImageIO.read(new File("src\\Images\\Morran.png"));
-
             bloodImg = ImageIO.read(new File("src\\Images\\Blood.png"));
 
-            myImg = ImageIO.read(new File("src\\Images\\My.png"));
-            muminPappaImg = ImageIO.read(new File("src\\Images\\Muminpappa.png"));
-            stinkyImg = ImageIO.read(new File("src\\Images\\Stinky.png"));
+            towerImg = ImageIO.read(new File("src\\Images\\My.png"));
+            enemyImg = ImageIO.read(new File("src\\Images\\Muminpappa.png"));
 
         } catch (IOException e) {
-            System.out.println("Hatifnatt.png not found");
+            System.out.println("image not found");
         }
 
         wave = 1;
@@ -73,20 +65,7 @@ public class Map extends Sprite {
         }
     }
 
-    public int collectGold() {// collects all the gold from the dead bodies
-        int n = 0;
 
-        for (Enemy e : enemies) {
-            //checks if the enemy has been collected and checks  the state of livingness
-            if (!e.isCollected() && !e.isAlive()) {
-
-                n += e.getGold();
-                e.setCollected(true);
-            }
-        }
-
-        return n;
-    }
 
     public void draw(Graphics2D g2d) {//draws the whole map
         super.draw(g2d);
@@ -125,117 +104,21 @@ public class Map extends Sprite {
                 }
             }
         }
-
     }
 
-    public void generateWave() {
-
-        for (int i = 0; i < 10 * wave; i++) {// This will be 10 enemies
-            int type;
-            BufferedImage enemyImg;
-
-            if ((wave % 2) == 0) { //checks if the int is even or odd
-                type = 0;           //Then sets the enemy type depending on the Mod of the wave
-                enemyImg = muminPappaImg;//And sets the approtrate image
-            } else {
-                type = 1;
-                enemyImg = myImg;
-            }
-            type = 0;
-            enemies.add(new Enemy(x - i * 60, y, type, wave, enemyImg, "death0.wav", "death1.wav", "death2.wav", bloodImg));//generates new enemies, the +i*15 is to seperate them so they won't be as tighly packed
-
-        }
-    }
-
-    public void cleanEnemies() { //Removes all the dead Enemy from enemies, hence making the ArryList smaller
-        for (int i = 0; i < enemies.size(); i++) { //The reason That I use this overly complex system instead of for(Enemy u : enemies) is that it generates ConcurrentModificationException
-            if (enemies.size() >= i) {
-                Enemy u = enemies.get(i);
-                if (!u.isAlive()) { //checks if the enemy is dead
-                    enemies.remove(u);
-                }
-            }
-        }
-    }
-
-    public boolean checkTile(int x, int y) {
-        System.out.println("You Clicked Tile " + (int) x / tileSize + " , " + (int) y / tileSize);
-        if (x < mapPixelSize & y < mapPixelSize & mapSize >= (int) (y / tileSize) & mapSize >= (int) (x / tileSize)) {
-            if (collitionMap[(int) (y / tileSize)][(int) (x / tileSize)] == 1) { //Makes sure the click is within the borders of the placement bounds
-
-                //Compres the XY Pos with the collitionmap[][] íf the placement i legal. 
-                // (int)(x/y)/tilesize determins what placement in the array the click was.
-                return true;
-
-            } else {
-                System.out.println("Placement out of MapBounds");
-                return false;
-            }
-
-        } else {
-            return false;
-        }
-    }
-
-    public int addTower(int x, int y, GameManager.TowerType tower, int gold) { // Overly complicated method for adding a tower
-        //checks if your holding a tower to place
-        if (tower != GameManager.TowerType.NON) {
-            //checks if you can place a tower on the current tile
-            if (checkTile(x, y)) {
+    public void addTower(int x, int y) { //creates a new tower
                 collitionMap[(int) y / tileSize][(int) x / tileSize] = 0;
-                //adds hattifnatt
-                if (tower == GameManager.TowerType.HATIFNATT) {
+                    towers.add(new Tower((int) (x / tileSize) * tileSize, (int) (y / tileSize) * tileSize, 5,5,50, towerImg));
 
-                    towers.add(new Hattifnatt((int) (x / tileSize) * tileSize, (int) (y / tileSize) * tileSize, hatifnattImg));
-                    //adds Morran
-                } else if (tower == GameManager.TowerType.MORRAN) {
-                    towers.add(new Morran((int) (x / tileSize) * tileSize, (int) (y / tileSize) * tileSize, morranImg));
-                    //adds Stinky
-                } else if (tower == GameManager.TowerType.STINKY) {
-                    towers.add(new Stinky((int) (x / tileSize) * tileSize, (int) (y / tileSize) * tileSize, stinkyImg));
-
-                }
-                //checks if the tower you placed is to expensive. if it is then the tower will be removed
-                if (towers.get(towers.size() - 1).getCost() > gold) {
-                    towers.remove(towers.size() - 1);
-                    collitionMap[(int) x / tileSize][(int) y / tileSize] = 1;
-                    return 0;
-                }
-                return towers.get(towers.size() - 1).getCost();
-
-            }
         }
-        return 0;
-
+    public void addEnemyAtStart(){
+    //The Y cordinates of waypoints are on the even numbers and X on odds
+        enemies.add(new Enemy(waypoints.get(1),waypoints.get(0),50, enemyImg, bloodImg));
     }
+
+
+
 //get clicked tower
 
-    public Tower clicked(int x, int y) {
 
-        for (Tower t : towers) {
-            if (t.clicked(x, y)) {
-                return t;
-            }
-
-        }
-
-        return null;
-    }
-
-    public boolean isEnemysAlive() {
-
-        for (Enemy e : enemies) {
-            if (e.isAlive()) {
-                return true;
-
-            }
-
-        }
-
-        return false;
-    }
-
-    public void nextWave() {
-        wave++;
-    }
 }
