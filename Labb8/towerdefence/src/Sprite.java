@@ -29,6 +29,13 @@ public class Sprite {
         }
     }
 
+    public void setImg(BufferedImage img) {
+        if (img != null) {
+            this.img = img;
+            width = img.getWidth();
+            height = img.getHeight();
+        }
+    }
     /**
      * @return the x
      */
@@ -95,12 +102,6 @@ public class Sprite {
     /**
      * @param img the img to set
      */
-    public void setImg(BufferedImage img) {
-        if (img != null) {
-            this.img = img;
-            width = img.getWidth();
-            height = img.getHeight();
-        }
-    }
+
 
 }

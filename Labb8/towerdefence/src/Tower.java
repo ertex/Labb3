@@ -44,8 +44,8 @@ public class Tower extends Sprite {
             }
         }
 
-        if (firedelay < 1) { //cools the tower down and allows it to shoot again
-            canFire = true;
+        if (firedelay < 1) { //"cools the tower" down and allows it to shoot again
+            canFire = true;  //or a delay before it can do damage again
         } else {
             firedelay--;
         }
@@ -54,7 +54,8 @@ public class Tower extends Sprite {
 
     public boolean checkInRange(Enemy target) {
 
-        if (sqrt(Math.pow((((x + width / 2) - (target.getX() + target.width / 2))), 2) + Math.pow((((y + height / 2) - (target.getY() + target.height / 2))), 2)) < range) { //does some math magic with distance, but Fredrik said "matte är min kryptonit" so this is not very detailed, sorry.
+        if (sqrt(Math.pow((((x + width / 2) - (target.getX() + target.width / 2))), 2) + Math.pow((((y + height / 2) - (target.getY() + target.height / 2))), 2)) < range) {
+            //calculates the distance ala pythagoras
 
             this.target = target; //Saves target so it can be fetched from other methods
             return true;
@@ -67,7 +68,6 @@ public class Tower extends Sprite {
 
     public void shoot(Enemy enemy) {
         enemy.getDamaged(damage);
-        //GameManager.playSound(sound); //-----------
 
         lineDelay = 5; //The amount of time the line will stay up
 
@@ -84,7 +84,8 @@ public class Tower extends Sprite {
             if (checkInRange(target)) {
                 if (lineDelay > 1) { //makes the bulletline stay a while so it's visible
 
-                    g2d.drawLine(this.getX() + width / 2, this.getY() + height / 2, target.getX() + target.getWidth() / 2, target.getY() + target.getHeight() / 2); // this.x / y is protected and in sprite
+                    g2d.drawLine(this.getX() + width / 2, this.getY() + height / 2, target.getX() + target.getWidth() / 2, target.getY() + target.getHeight() / 2);
+                    // this.x / y is protected and in sprite
                     //"bULLET"
                 }
             }
